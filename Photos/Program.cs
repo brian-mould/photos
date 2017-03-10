@@ -66,7 +66,7 @@ namespace Photos
                 try
                 {
                     //metadata includes such things as 'coverphoto, facesetid, albumid, uploaderid, filename
-                    var metadata = _amazonS3Client.GetObjectMetadata(directory, obj.Key);
+                    //var metadata = _amazonS3Client.GetObjectMetadata(directory, obj.Key);
                     var obj2 = _amazonS3Client.GetObject(directory, obj.Key);
                     using (var response = _amazonS3Client.GetObject(directory, obj.Key))
                     {
@@ -81,10 +81,10 @@ namespace Photos
                     }
                     photosLoaded++;
                     Console.WriteLine("Loaded: " + obj.Key);
-                    foreach (string key in metadata.Metadata.Keys)
-                    {
-                        Console.WriteLine(key + ":" + metadata.Metadata[key]);
-                    }
+                    //foreach (string key in metadata.Metadata.Keys)
+                    //{
+                    //   Console.WriteLine(key + ":" + metadata.Metadata[key]);
+                    //}
                 }
                 catch(Exception ex)
                 {
